@@ -1,0 +1,33 @@
+{{ define "heading" }}
+{{ if .Site.Params.Avatar }}
+<img class="hidden md:block w-20 rounded-full mr-6" src="{{ .Site.Params.Avatar | absURL }}" alt="{{ .Site.Params.Author }}">
+{{ end }}
+
+<div>
+    <h1 class="text-4xl font-bold">{{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.tagline }}</p>
+</div>
+{{ end }}
+
+{{ define "content" }}
+<section class="mb-24">
+    {{ $posts := (index .Site.Data "posts") }} <!-- Load posts here -->
+
+    {{ if $posts }} <!-- Check if posts exist -->
+        <div>
+            <h2 class="text-3xl font-bold mb-2">Blog Posts</h2>
+            <ol>
+                {{ range $posts }}
+                <li class="mb-6 md:flex md:flex-row">
+                    {{ $createdAt := (time .attributes.createdAt) }} <!-- Parse the date -->
+                    <time class="block md:flex-l-24" datetime="{{ .attributes.publishedAt }}">{{ $createdAt.Format "Jan 02" }}</time>
+                    <a class="text-lg md:ml-12" href="/posts/{{ .attributes.Slug }}">{{ .attributes.Title }}</a>
+                </li>
+                {{ end }}
+            </ol>
+        </div>
+    {{ else }}
+        <p>No blog posts found.</p> <!-- Fallback message -->
+    {{ end }}
+</section>
+{{ end }}

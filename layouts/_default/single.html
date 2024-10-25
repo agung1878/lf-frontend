@@ -1,0 +1,40 @@
+{{ define "heading" }}
+<div>
+    {{ partial "back-home.html" . }}
+
+    <!-- Title and Publication Date -->
+    <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+
+    {{ if .Date }} <!-- Check if date is available -->
+        <time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+    {{ end }}
+
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <ol class="mt-4">
+        {{ range . }}
+        <li class="inline-block">
+            <a class="border-none text-gray-800 text-xs bg-gray-400 hover:bg-gray-600 hover:text-white rounded-sm px-3 py-1" href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a>
+        </li>
+        {{ end }}
+    </ol>
+    {{ end }}
+</div>
+{{ end }}
+
+{{ define "content" }}
+<article class="mb-12">
+    <section class="prose mt-6">
+        <h2>{{ .Title }}</h2>
+
+        {{ if .Date }} <!-- Check if date is available -->
+            <time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        {{ end }}
+
+        <!-- Output the content -->
+        {{ .Content | safeHTML }}
+    </section>
+
+    {{ template "_internal/disqus.html" . }}
+</article>
+{{ end }}

@@ -1,0 +1,12 @@
+<div>
+    <h2 class="text-3xl font-bold mb-2">{{ .Year }}</h2> <!-- Access the year -->
+    <ol>
+        {{ range .Posts }} <!-- Access the posts for the year -->
+        <li class="mb-6 md:flex md:flex-row">
+            {{ $createdAt := (time .attributes.createdAt) }} <!-- Parse the date -->
+            <time class="block md:flex-l-24" datetime="{{ .attributes.publishedAt }}">{{ $createdAt.Format "Jan 02" }}</time>
+            <a class="text-lg md:ml-12" href="/posts/{{ .attributes.Slug }}">{{ .attributes.Title }}</a>
+        </li>
+        {{ end }}
+    </ol>
+</div>

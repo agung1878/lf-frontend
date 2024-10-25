@@ -1,3 +1,23 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://agung1878.github.io/"
+disqusShortname = "agung1878"
+title = "Lotus Flower Journal"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+theme = 'github.com/ianrodrigues/hugo-tailwind-journal'
+
+[taxonomies]
+    tag = "tags"
+
+[permalinks]
+  posts = "/posts/:slug/"
+
+[params]
+    author = "John Doe"
+    avatar = "images/avatar.jpg"
+    description = "A minimalist journal template for Hugo using TailwindCSS."
+    tagline = "A minimalist journal template for Hugo using TailwindCSS."
+
+[module]
+  [[module.imports]]
+    path = 'github.com/ianrodrigues/hugo-tailwind-journal'

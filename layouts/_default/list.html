@@ -1,0 +1,20 @@
+{{ define "content" }}
+<section class="mb-24">
+    {{ $posts := .Site.Data.posts }} <!-- Fetch posts data from JSON -->
+
+    {{ if $posts }} <!-- Check if posts exist -->
+        <h2 class="text-3xl font-bold mb-2">Blog Posts</h2>
+        <ol>
+            {{ range $posts }}
+            <li class="mb-6 md:flex md:flex-row">
+                {{ $createdAt := (time .attributes.createdAt) }} <!-- Parse the date -->
+                <time class="block md:flex-l-24" datetime="{{ .attributes.publishedAt }}">{{ $createdAt.Format "Jan 02" }}</time>
+                <a class="text-lg md:ml-12" href="/posts/{{ .attributes.Slug }}">{{ .attributes.Title }}</a>
+            </li>
+            {{ end }}
+        </ol>
+    {{ else }}
+        <p>No blog posts found.</p> <!-- Fallback message -->
+    {{ end }}
+</section>
+{{ end }}

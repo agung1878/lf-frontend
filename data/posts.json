@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2,
+    "attributes": {
+      "Title": "Lorem Ipsum",
+      "Slug": "lorem",
+      "Content": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-10-25T03:59:27.794Z",
+      "updatedAt": "2024-10-25T03:59:27.794Z",
+      "publishedAt": "2024-10-25T03:59:27.806Z"
+    }
+  },
+  {
+    "id": 4,
+    "attributes": {
+      "Title": "Jum'at Berkah",
+      "Slug": "berkah",
+      "Content": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Hari ini adalah hari Jum'at dimana semua umat Muslim melaksanakan salat Jum'at, okei"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-10-25T09:04:03.267Z",
+      "updatedAt": "2024-10-25T09:04:03.267Z",
+      "publishedAt": "2024-10-25T09:04:03.283Z"
+    }
+  }
+]
