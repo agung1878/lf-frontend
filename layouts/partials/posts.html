@@ -1,12 +1,27 @@
-<div>
-    <h2 class="text-3xl font-bold mb-2">{{ .Year }}</h2> <!-- Access the year -->
-    <ol>
-        {{ range .Posts }} <!-- Access the posts for the year -->
-        <li class="mb-6 md:flex md:flex-row">
-            {{ $createdAt := (time .attributes.createdAt) }} <!-- Parse the date -->
-            <time class="block md:flex-l-24" datetime="{{ .attributes.publishedAt }}">{{ $createdAt.Format "Jan 02" }}</time>
-            <a class="text-lg md:ml-12" href="/posts/{{ .attributes.Slug }}">{{ .attributes.Title }}</a>
-        </li>
+{{ define "content" }}
+<section class="mb-24">
+    {{ $posts := .Site.Data.posts }} <!-- Fetch posts data from JSON -->
+
+    {{ $groupedPosts := dict }} <!-- Create an empty dictionary to hold posts grouped by year -->
+
+    {{ range $posts }}
+        {{ $year := (time .attributes.publishedAt).Format "2006" }} <!-- Extract year -->
+        {{ if not (index $groupedPosts $year) }}
+            {{ $groupedPosts = merge $groupedPosts (dict $year (slice)) }} <!-- Initialize year key if it doesn't exist -->
         {{ end }}
-    </ol>
-</div>
+        {{ $groupedPosts = merge $groupedPosts (dict $year (append (index $groupedPosts $year) .)) }} <!-- Append the post to the corresponding year -->
+    {{ end }}
+
+    {{ range $year, $posts := $groupedPosts }} <!-- Iterate over grouped posts -->
+        <h2 class="text-3xl font-bold mb-2">{{ $year }}</h2>
+        <ol>
+            {{ range $posts }} <!-- Iterate through each post for that year -->
+                <li class="mb-6 md:flex md:flex-row">
+                    <time class="block md:flex-l-24" datetime="{{ .attributes.publishedAt }}">{{ (time .attributes.publishedAt).Format "Jan 02" }}</time>
+                    <a class="text-lg md:ml-12" href="/posts/{{ .attributes.Slug }}">{{ .attributes.Title }}</a>
+                </li>
+            {{ end }}
+        </ol>
+    {{ end }}
+</section>
+{{ end }}

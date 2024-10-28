@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="http://localhost:1313/css/chroma.dracula.css">
 </head>
 <body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
-    <div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
+    <div class="flex flex-col min-h-screen p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
         <header class="mb-6">
             
             <div class="mb-6 md:flex md:items-center">
@@ -72,41 +72,14 @@
         
 <article class="mb-12">
     <section class="prose mt-6">
-        <h2>Lorem Ipsum</h2>
-
-         
-            <time datetime="2024-10-25 03:59:27.806 &#43;0000 UTC">25 Oct 2024</time>
-        
-
         
         <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&rdquo;</p>
 
     </section>
-
-    <div id="disqus_thread"></div>
-<script>
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "agung1878" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </article>
 
 
-        <footer>
+        <footer class="fixed bottom-0">
             <p>
                 &copy; 2024. Proudly made with 💕 with <a href="https://gohugo.io/" target="_blank">Hugo</a> and <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>.
             </p>

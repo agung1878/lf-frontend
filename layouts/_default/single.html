@@ -25,16 +25,8 @@
 {{ define "content" }}
 <article class="mb-12">
     <section class="prose mt-6">
-        <h2>{{ .Title }}</h2>
-
-        {{ if .Date }} <!-- Check if date is available -->
-            <time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
-        {{ end }}
-
         <!-- Output the content -->
         {{ .Content | safeHTML }}
     </section>
-
-    {{ template "_internal/disqus.html" . }}
 </article>
 {{ end }}
