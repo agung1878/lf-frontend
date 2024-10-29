@@ -13,8 +13,8 @@ theme = 'github.com/ianrodrigues/hugo-tailwind-journal'
   posts = "/posts/:slug/"
 
 [params]
-    author = "John Doe"
-    avatar = "images/avatar.jpg"
+    author = "Lotus Flower"
+    avatar = "images/lf.png"
     description = "A minimalist journal template for Hugo using TailwindCSS."
     tagline = "A minimalist journal template for Hugo using TailwindCSS."
 
